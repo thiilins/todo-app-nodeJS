@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO APP</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Glory:wght@300;400;600;700&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="todo-app">
+    <div id="add" class="add-new-todo-btn">
+      <img id="add-new" src="/img/add.svg" alt="" />
+    </div>
+    <aside id="add-container" class="side-container open-modal">
+      <div class="logo-box">
+        <img class="logo" src="/img/logo.png" alt="Logo" />
+        <h1 class="logo-text">ToDo App!</h1>
+      </div>
+      <div class="add-todo-form-box">
+        <form class="add-todo-form" action="/add-todo" method="POST">
+          <input
+            class="add-todo-input title-input"
+            type="text"
+            name="title"
+            placeholder="Título"
+            required
+          />
+          <textarea
+            class="add-todo-input content-input"
+            name="content"
+            id="content"
+            rows="10"
+            placeholder="Conteúdo"
+            required
+          >
+          </textarea>
+          <div class="last-todo-row">
+            <select
+              class="add-todo-input status-input"
+              name="status"
+              id="status"
+              required
+            >
+              <option disabled selected>Selecione o Status</option>
+              <option value="open">Em aberto</option>
+              <option value="progress">Em Andamento</option>
+              <option value="closed">Finalizado</option>
+            </select>
+            <button class="add-todo-button" type="submit">Adicionar</button>
+          </div>
+        </form>
+      </div>
+      <div id="exit" class="exit-btn-box">
+        <img id="exit-btn" src="/img/exit.svg" alt="" />
+      </div>
+    </aside>
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+      <section id="todo-content-container">
+        <!-- TODO BOX - OPEN -->
+        <% todoItem.forEach(todo =>{ %>
+        <div class="todo-box <%=todo.status%>">
+          <div class="-title-box">
+            <h1><%=todo.title%></h1>
+          </div>
+          <div class="todo-content-box">
+            <p><%=todo.content%></p>
+          </div>
+          <div class="todo-status-box">
+            <span class="todo-status <%=todo.status%>-status"
+              ><%=formatPtBR(todo.status)%></span
+            >
+          </div>
+          <div class="todo-new-status-box">
+            <form class="todo-new-status-form" action="/" action="POST">
+              <select
+                name="status"
+                id="new-status"
+                class="select-status"
+                required
+              >
+                <option disabled selected>Selecione o Status</option>
+                <option value="open">Em aberto</option>
+                <option value="progress">Em Andamento</option>
+                <option value="closed">Finalizado</option>
+              </select>
+              <button class="change-todo-status" type="submit">Alterar</button>
+            </form>
+            <form
+              action="/delete-item/<%=todo.id%>?_method=DELETE"
+              method="post"
+            >
+              <button class="delete-todo" type="submit">Excluir</button>
+            </form>
+          </div>
+        </div>
+        <%})%>
+      </section>
+    </main>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
