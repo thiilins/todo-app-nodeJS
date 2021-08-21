@@ -16,12 +16,16 @@ html {
   font-size: 62.5%;
   font-family: "Glory", sans-serif;
 }
+body {
+  max-width: 100%;
+  background-color: #38557e;
+}
 textarea {
   resize: none;
 }
 #todo-app {
-  min-height: 100vh;
   display: flex;
+  max-width: 96%;
 }
 .side-container {
   position: relative;
@@ -104,7 +108,8 @@ textarea {
 #todo-content-container {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+  max-width: 100%;
 }
 .todo-box {
   display: flex;
