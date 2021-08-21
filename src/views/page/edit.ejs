@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <%-include('../partials/head')%>
+
+  <body id="edit_page" class="<%=todo.status%>">
+    <main id="todo_edit_container" class="<%=todo.status%>">
+      <form
+        id="edit_todo_form"
+        action="/atualizar/<%=todo.id%>?_method=PUT"
+        method="POST"
+      >
+        <input
+          class="edit-todo-input edit-title-input"
+          type="text"
+          name="title"
+          value="<%=todo.title%>"
+          required
+        />
+        <textarea
+          class="edit-todo-input edit-content-input"
+          name="content"
+          id="content"
+          rows="18"
+          required
+        >
+<%=todo.content%></textarea
+        >
+
+        <select
+          class="edit-todo-input edit-status-input"
+          name="status"
+          id="status"
+          required
+        >
+          <option value="open">Aberto</option>
+          <option value="progress">Em Andamento</option>
+          <option value="closed">Finalizado</option>
+        </select>
+        <button class="edit-todo-button" type="submit">Salvar</button>
+      </form>
+    </main>
+  </body>
+</html>

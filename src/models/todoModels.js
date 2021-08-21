@@ -40,12 +40,40 @@ const todoModel = {
   },
   formatStatusPtBR(status) {
     if (status == "open") {
-      return "aberto";
+      return "Aberto";
     } else if (status == "progress") {
-      return "em progresso";
+      return "Em Progresso";
     } else if (status == "closed") {
-      return "finalizado";
+      return "Finalizado";
     }
+  },
+  updateTodo(id, title, content, status) {
+    this.todoList.forEach((todo, index) => {
+      if (todo.id == id) {
+        this.todoList[index] = {
+          id,
+          title,
+          content,
+          status,
+        };
+      }
+    });
+  },
+  changeStatus(id, status) {
+    this.todoList.forEach((todo, index) => {
+      if (todo.id == id) {
+        this.todoList[index].status = status;
+      }
+    });
+  },
+  editTodo(id) {
+    let todoEditable = {};
+    this.todoList.forEach((todo, index) => {
+      if (todo.id == id) {
+        todoEditable = this.todoList[index];
+      }
+    });
+    return todoEditable;
   },
 };
 module.exports = todoModel;

@@ -1,0 +1,46 @@
+<div id="add" class="add-new-todo-btn">
+  <img id="add-new" src="/img/add.svg" alt="" />
+</div>
+<aside id="add-container" class="side-container">
+  <div class="logo-box">
+    <img class="logo" src="/img/logo.png" alt="Logo" />
+    <h1 class="logo-text">ToDo App!</h1>
+  </div>
+  <div class="add-todo-form-box">
+    <form class="add-todo-form" action="/adicionar" method="POST">
+      <input
+        class="add-todo-input title-input"
+        type="text"
+        name="title"
+        placeholder="Título"
+        required
+      />
+      <textarea
+        class="add-todo-input content-input"
+        name="content"
+        id="content"
+        rows="10"
+        placeholder="Conteúdo"
+        required
+      >
+      </textarea>
+      <div class="last-todo-row">
+        <select
+          class="add-todo-input status-input"
+          name="status"
+          id="status"
+          required
+        >
+          <option disabled selected>Status</option>
+          <option value="open">Em Aberto</option>
+          <option value="progress">Em Andamento</option>
+          <option value="closed">Finalizado</option>
+        </select>
+        <button class="add-todo-button" type="submit">Adicionar</button>
+      </div>
+    </form>
+  </div>
+  <div id="exit" class="exit-btn-box">
+    <img id="exit-btn" src="/img/exit.svg" alt="" />
+  </div>
+</aside>
