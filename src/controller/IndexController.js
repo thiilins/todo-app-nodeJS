@@ -1,7 +1,9 @@
+const path = require("path");
 const todoModel = require("../models/todoModels");
 const IndexController = {
   index: (req, res) => {
     const formatPtBR = todoModel.formatStatusPtBR;
+
     res.render("page/index", {
       todoItem: todoModel.todoList,
       formatPtBR: formatPtBR,

@@ -178,6 +178,20 @@ textarea {
   padding: 0.8rem 0.8rem;
   box-shadow: -5px 5px 30px rgba(75, 74, 74, 0.39);
 }
+.todo-images {
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, auto));
+  gap: 1rem;
+}
+.todo-image-thumb {
+  max-width: 100%;
+  height: auto;
+  transition: all 0.5s;
+}
+.todo-image-thumb:hover {
+  transform: scale(3) translate(4rem);
+}
 .todo-new-status-box {
   margin-bottom: 5rem;
   max-width: 100%;
