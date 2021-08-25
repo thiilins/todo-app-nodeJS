@@ -22,7 +22,7 @@
             >
           </div>
 
-          <div class="todo-new-status-box">
+          <div class="todo-changes-container">
             <form
               class="todo-new-status-form"
               action="/alterar-status/<%=todo.id%>?_method=PUT"
@@ -44,17 +44,21 @@
                 Alterar
               </button>
             </form>
-            <form
-              action="/delete-item/<%=todo.id%>?_method=DELETE"
-              method="post"
-            >
-              <button class="delete-todo" type="submit">Excluir</button>
-            </form>
-          </div>
-          <div class="edit-todo-box">
-            <form method="GET" action="/editar/<%=todo.id%>">
-              <button class="edit-todo-btn">Editar</button>
-            </form>
+            <div class="edit-delete-todo-container">
+              <div class="edit-todo-box">
+                <form method="GET" action="/editar/<%=todo.id%>">
+                  <button class="edit-todo-btn"></button>
+                </form>
+              </div>
+              <div class="delete-todo-box">
+                <form
+                  action="/excluir/<%=todo.id%>?_method=DELETE"
+                  method="post"
+                >
+                  <button class="delete-todo-btn" type="submit"></button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
         <%})%>
