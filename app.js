@@ -1,3 +1,4 @@
+const port = 3000;
 //  Importando e inicializando o módulo 'express'
 const express = require("express"),
   app = express(),
@@ -15,10 +16,9 @@ app.use(express.json());
 //Configurando recebimento de formulário
 app.use(express.urlencoded({ extended: false }));
 //Definir a pasta de arquivos estáticos
-app.use(express.static(path.resolve("public")));
+app.use(express.static(path.resolve("src", "public")));
 
 // INSTANCIANDO ROTAS
-
 app.use("/", indexRoutes);
 
 // Definindo View Engine
@@ -27,6 +27,6 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve("src", "views"));
 
 //Definindo escuta de porta para iniciar o servidor
-app.listen(3000, () => {
-  console.log("O Servidor está rodando na porta 3000 ");
+app.listen(port, () => {
+  console.log(`O servidor está rodando em http://localhost:${port}`);
 });
