@@ -5,7 +5,7 @@
   <!-- <a href="https://todowebappnodejs.netlify.com">Demo</a> -->
 </div>
 
-<h1 align="center">Todo Web App Nodejs - [Arquivado]</h1>
+<h1 align="center">Todo Web App Nodejs </h1>
 
 <p align="center">
   <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/thiilins/todo-app-nodeJS?color=56BEB8&style=for-the-badge">
